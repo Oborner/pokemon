@@ -2,13 +2,15 @@ use std::clone::Clone;
 mod eficiencia;
 use crate::pokemon::eficiencia::eficiencia;
 use rand::prelude::*;
+use serde::{Deserialize, Serialize};
+
 
 pub struct Jogador{
     pub nome: String,
     pub pokemons: Vec<Pokemon>,
     pub bag: Vec<Itens>,
 }
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize)]
 pub struct Pokemon{
     pub nome: String,
     pub hp_max: u16,
@@ -28,7 +30,7 @@ pub struct Itens{
     pub cura: u8,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize)]
 pub struct Attack{
     pub nome: String,
     pub categoria: Categoria,
@@ -38,7 +40,7 @@ pub struct Attack{
 }
 
 
-#[derive(Debug, PartialEq, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy, Serialize)]
 pub enum Tipo{
     Normal,
     Fire,
@@ -60,7 +62,7 @@ pub enum Tipo{
     Fairy,
 }
 
-#[derive(Debug, PartialEq, Clone, Copy)]
+#[derive(Debug, PartialEq, Clone, Copy, Serialize)]
 pub enum Categoria{
     Físico,
     Especial,
