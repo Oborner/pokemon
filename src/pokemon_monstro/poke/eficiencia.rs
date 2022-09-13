@@ -1,6 +1,5 @@
 use super::Tipo;
 
-
 pub fn eficiencia (t1:Tipo, t2:Tipo) -> f32{
     let mut eficiencia:f32 = 1.0;
 

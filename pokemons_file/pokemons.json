@@ -1,0 +1,226 @@
+[
+  {
+    "nome": "Venusaur",
+    "hp_max": 270,
+    "hp": 270,
+    "attack": 152.0,
+    "defense": 153.0,
+    "sp_attack": 184.0,
+    "sp_defense": 184.0,
+    "speed": 148.0,
+    "evasion": 10,
+    "p_tipo": "Grass",
+    "attacks": [
+      {
+        "nome": "Sludge Bomb",
+        "categoria": "Especial",
+        "power": 90.0,
+        "accuracy": 100,
+        "pp": 10,
+        "tipo": "Poison",
+        "statusComeço": "None",
+        "statusFinal": "Poison"
+      },
+      {
+        "nome": "Giga Drain",
+        "categoria": "Especial",
+        "power": 75.0,
+        "accuracy": 100,
+        "pp": 10,
+        "tipo": "Grass",
+        "statusComeço": "None",
+        "statusFinal": "Rooting"
+      },
+      {
+        "nome": "Hidden Power",
+        "categoria": "Especial",
+        "power": 60.0,
+        "accuracy": 100,
+        "pp": 15,
+        "tipo": "Normal",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Solar Beam",
+        "categoria": "Especial",
+        "power": 120.0,
+        "accuracy": 100,
+        "pp": 10,
+        "tipo": "Grass",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      }
+    ],
+    "statusComeço": "None",
+    "statusFinal": "None"
+  },
+  {
+    "nome": "Charizard",
+    "hp_max": 266,
+    "hp": 266,
+    "attack": 155.0,
+    "defense": 144.0,
+    "sp_attack": 200.0,
+    "sp_defense": 157.0,
+    "speed": 184.0,
+    "evasion": 10,
+    "p_tipo": "Fire",
+    "attacks": [
+      {
+        "nome": "Fire Blast",
+        "categoria": "Especial",
+        "power": 120.0,
+        "accuracy": 85,
+        "pp": 5,
+        "tipo": "Fire",
+        "statusComeço": "None",
+        "statusFinal": "Burn"
+      },
+      {
+        "nome": "Air Slash",
+        "categoria": "Especial",
+        "power": 75.0,
+        "accuracy": 95,
+        "pp": 20,
+        "tipo": "Flying",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Flamethrower",
+        "categoria": "Especial",
+        "power": 95.0,
+        "accuracy": 100,
+        "pp": 15,
+        "tipo": "Fire",
+        "statusComeço": "None",
+        "statusFinal": "Burn"
+      },
+      {
+        "nome": "Bite",
+        "categoria": "Físico",
+        "power": 60.0,
+        "accuracy": 100,
+        "pp": 25,
+        "tipo": "Dark",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      }
+    ],
+    "statusComeço": "None",
+    "statusFinal": "None"
+  },
+  {
+    "nome": "Blastoise",
+    "hp_max": 268,
+    "hp": 268,
+    "attack": 153.0,
+    "defense": 184.0,
+    "sp_attack": 157.0,
+    "sp_defense": 193.0,
+    "speed": 144.0,
+    "evasion": 10,
+    "p_tipo": "Water",
+    "attacks": [
+      {
+        "nome": "Rapid Spin",
+        "categoria": "Físico",
+        "power": 20.0,
+        "accuracy": 100,
+        "pp": 40,
+        "tipo": "Normal",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Dark Pulse",
+        "categoria": "Especial",
+        "power": 80.0,
+        "accuracy": 100,
+        "pp": 15,
+        "tipo": "Dark",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Aura Sphere",
+        "categoria": "Especial",
+        "power": 80.0,
+        "accuracy": 100,
+        "pp": 20,
+        "tipo": "Fighting",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Ice Beam",
+        "categoria": "Especial",
+        "power": 90.0,
+        "accuracy": 100,
+        "pp": 10,
+        "tipo": "Ice",
+        "statusComeço": "Freeze",
+        "statusFinal": "None"
+      }
+    ],
+    "statusComeço": "None",
+    "statusFinal": "None"
+  },
+  {
+    "nome": "Alakazam",
+    "hp_max": 220,
+    "hp": 220,
+    "attack": 94.0,
+    "defense": 85.0,
+    "sp_attack": 247.0,
+    "sp_defense": 175.0,
+    "speed": 220.0,
+    "evasion": 10,
+    "p_tipo": "Psychic",
+    "attacks": [
+      {
+        "nome": "Psychic",
+        "categoria": "Especial",
+        "power": 90.0,
+        "accuracy": 100,
+        "pp": 10,
+        "tipo": "Psychic",
+        "statusComeço": "Confusion",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Focus Blast",
+        "categoria": "Especial",
+        "power": 120.0,
+        "accuracy": 70,
+        "pp": 5,
+        "tipo": "Fighting",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      },
+      {
+        "nome": "Shadow Ball",
+        "categoria": "Especial",
+        "power": 80.0,
+        "accuracy": 100,
+        "pp": 15,
+        "tipo": "Ghost",
+        "statusComeço": "None",
+        "statusFinal": "Curse"
+      },
+      {
+        "nome": "Knock Off",
+        "categoria": "Físico",
+        "power": 65.0,
+        "accuracy": 100,
+        "pp": 20,
+        "tipo": "Dark",
+        "statusComeço": "None",
+        "statusFinal": "None"
+      }
+    ],
+    "statusComeço": "None",
+    "statusFinal": "None"
+  }
+]
