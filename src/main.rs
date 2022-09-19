@@ -1,11 +1,10 @@
 mod lib;
 use lib::{inteiro::lê_ok};
 mod pokemon_monstro;
-use crate::pokemon_monstro::poke::*;
-use serde::{Deserialize, Serialize};
+use crate::pokemon_monstro::poke::{*, self};
 use serde_json::Error;
 use std::{fs::{File, self}, io::{Read, Write}, str::FromStr};
-
+use colored::*;
 
     fn main()  -> Result<(), serde_json::Error> {
         let mut arquivo = File::open("pokemons_file/pokemons.json")
@@ -19,7 +18,7 @@ use std::{fs::{File, self}, io::{Read, Write}, str::FromStr};
         serde_json::from_str(&texto)?;
         
         let mut count = 0;
-        for i in list_pokemon{
+        for i in &list_pokemon{
             println!("{} - {}", count, i.nome);
             count +=1;
         }
@@ -32,6 +31,63 @@ use std::{fs::{File, self}, io::{Read, Write}, str::FromStr};
 
         println!("{:?}", list_pokemon[num1].nome);
         println!("{:?}", list_pokemon[num2].nome);
+
+        let mut poke1 = list_pokemon[num1].clone();
+        let mut poke2 = list_pokemon[num2].clone();
+        let mut round = 1;
+
+        loop{
+            println!();
+            println!("================================================");
+            println!("{} {}", "Round: ".cyan(), round.to_string().cyan());
+            println!("================================================");
+            println!();
+            println!("Player 1 escolha o ataque: ");
+            println!("{:?}", poke1.attacks);
+            count = 0;
+            for i in &poke1.attacks{
+                println!("{} - {}", count, i.nome);
+                count +=1;
+            }
+            let num_attack1 = lê_ok();
+            println!();
+
+            println!("Player 2 escolha o ataque: ");
+            println!("{:?}", poke2.attacks);
+            count = 0;
+            for i in &poke2.attacks{
+                println!("{} - {}", count, i.nome);
+                count +=1;
+            }
+            let num_attack2 = lê_ok();
+            if poke1.speed>poke2.speed{
+                println!("================================================");
+                println!("{} usa {:?}\n", poke1.nome , poke1.attacks[num_attack1]);
+                poke::Pokemon::ataca(&mut poke1, &mut poke2, num_attack1);
+                println!("================================================");
+                println!("{} usa {:?}\n", poke2.nome , poke2.attacks[num_attack2]);
+                poke::Pokemon::ataca(&mut poke2, &mut poke1, num_attack2);
+                println!("================================================");
+            }
+            if poke1.speed<poke2.speed{
+                println!("================================================");
+                println!("{} usa {:?}\n", poke2.nome , poke2.attacks[num_attack2]);
+                poke::Pokemon::ataca(&mut poke2, &mut poke1, num_attack2);
+                println!("================================================");
+                println!("{} usa {:?}\n", poke1.nome , poke1.attacks[num_attack1]);
+                poke::Pokemon::ataca(&mut poke1, &mut poke2, num_attack1);
+                println!("================================================");
+            }
+
+            if poke1.hp == 0 {
+                println!("{}", "O player 2 ganhou".red());
+                break;
+            }else if poke2.hp == 0 {
+                println!("{}", "O player 1 ganhou".red());
+                break;
+            }
+            round +=1;
+        }
 
         Ok(())
     }

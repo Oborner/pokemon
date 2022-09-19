@@ -3,7 +3,7 @@ pub mod poke{
     mod eficiencia;
     mod efeitos;
     use crate::pokemon_monstro::poke::eficiencia::eficiencia;
-    use crate::pokemon_monstro::poke::efeitos::efeito;
+    use crate::pokemon_monstro::poke::efeitos::*;
     use rand::prelude::*;
     use serde::{Deserialize, Serialize};
     use std::str::FromStr;
@@ -203,6 +203,9 @@ fn from_str(input: &str) -> Result<StatusComeçoTurno, Self::Err> {
     //Função para realizar o ataque
     impl Ataque for Pokemon{
         fn ataca(atacante: &mut Self, inimigo: &mut Self, i: usize){
+
+            efeito_começo( atacante);
+            efeito_começo( inimigo);
             let ataque_categoria = atacante.attacks[i].categoria.clone();
             let poder = atacante.attacks[i].power.clone();
             let tipo_ataque = atacante.attacks[i].tipo.clone();
@@ -210,6 +213,7 @@ fn from_str(input: &str) -> Result<StatusComeçoTurno, Self::Err> {
             let p_ataque;
             let p_defesa;
             let random:f32 = rand::thread_rng().gen_range(85.0..101.0)/100.0;
+
 
             if ataque_categoria == Categoria::Físico {
                 p_ataque = atacante.attack.clone();
@@ -239,7 +243,11 @@ fn from_str(input: &str) -> Result<StatusComeçoTurno, Self::Err> {
             //Redução do pp(pontos de ação) do ataque
             atacante.attacks[i].pp -= 1;
 
-            println!("{:?}", inimigo.hp);
+            println!("O {} causa {} de dano", atacante.nome, damage_int);
+            println!("O {} fica com {} de vida",inimigo.nome, inimigo.hp);
+
+            efeito_final( atacante);
+            efeito_final( inimigo);
         }
     }
 }
