@@ -42,7 +42,7 @@ use colored::*;
         let mut round = 1;
 
         //Aqui se inicia a luta
-        loop{
+        'luta: loop{
             println!();
             println!("================================================");
             println!("{} {}", "Round: ".cyan(), round.to_string().cyan());
@@ -79,29 +79,40 @@ use colored::*;
                 println!("{} usa {:?}\n", poke1.nome , poke1.attacks[num_attack1]);
                 poke::Pokemon::ataca(&mut poke1, &mut poke2, num_attack1);
                 println!("================================================");
+                //Aqui é definido o pokemon ganhador
+                if poke2.hp == 0 {
+                    println!("{}", "O player 1 ganhou".red());
+                    break 'luta;
+                }
                 //O segundo pokemon ataca
                 println!("{} usa {:?}\n", poke2.nome , poke2.attacks[num_attack2]);
                 poke::Pokemon::ataca(&mut poke2, &mut poke1, num_attack2);
                 println!("================================================");
+                if poke1.hp == 0 {
+                    println!("{}", "O player 2 ganhou".red());
+                    break 'luta;
+                }
+                
             }else if poke1.speed<poke2.speed{
                 println!("================================================");
                 println!("{} usa {:?}\n", poke2.nome , poke2.attacks[num_attack2]);
                 poke::Pokemon::ataca(&mut poke2, &mut poke1, num_attack2);
                 println!("================================================");
-
+                if poke1.hp == 0 {
+                    println!("{}", "O player 2 ganhou".red());
+                    break 'luta;
+                }
+                
                 println!("{} usa {:?}\n", poke1.nome , poke1.attacks[num_attack1]);
                 poke::Pokemon::ataca(&mut poke1, &mut poke2, num_attack1);
                 println!("================================================");
+                if poke2.hp == 0 {
+                    println!("{}", "O player 1 ganhou".red());
+                    break 'luta;
+                }
             }
 
-            //Aqui é definido o ganhando quando um pokemon chega com vida = 0
-            if poke1.hp == 0 {
-                println!("{}", "O player 2 ganhou".red());
-                break;
-            }else if poke2.hp == 0 {
-                println!("{}", "O player 1 ganhou".red());
-                break;
-            }
+            
             round +=1;
         }
 
