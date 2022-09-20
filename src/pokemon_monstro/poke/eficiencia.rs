@@ -1,5 +1,10 @@
 use super::Tipo;
+use colored::*;
 
+// Função para definar se o ataque tem vantagem sobre o atacante
+//Caso seja efetivo o valor é igual a 2, o que dobrará o dano
+//Caso não seja efeitivo o valor é igual a 0.5, causando metade do dano
+//O ataque ainda pode ser ineficiente, causando 0 de dano
 pub fn eficiencia (t1:Tipo, t2:Tipo) -> f32{
     let mut eficiencia:f32 = 1.0;
 
@@ -23,6 +28,17 @@ pub fn eficiencia (t1:Tipo, t2:Tipo) -> f32{
         Tipo::Steel => if t2==Tipo::Fire || t2==Tipo::Water || t2==Tipo::Electric || t2==Tipo::Steel{eficiencia=0.5} else if t2==Tipo::Ice || t2==Tipo::Rock || t2==Tipo::Fairy {eficiencia=2.0},
         Tipo::Fairy => if t2==Tipo::Fire || t2==Tipo::Poison || t2==Tipo::Steel{eficiencia=0.5} else if t2==Tipo::Fighting || t2==Tipo::Dragon || t2==Tipo::Dark{eficiencia=2.0},
     }
+
+    if eficiencia == 2.0 {
+        println!("{}", "O  ATAQUE FOI SUPER-EFETIVO".bright_red().bold());
+    }
+    if eficiencia == 0.5  {
+        println!("{}", "O  ATAQUE NÃO FOI EFETIVO".yellow());
+    }
+    if eficiencia == 0.0 {
+        println!("{}", "O  ATAQUE NÃO CAUSA DANO".green());
+    }
+    
 
     eficiencia
 }

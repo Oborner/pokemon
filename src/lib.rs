@@ -1,5 +1,3 @@
-
-
 pub mod inteiro {
 
 use std::io;

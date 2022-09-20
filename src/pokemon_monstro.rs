@@ -1,15 +1,12 @@
 pub mod poke{
     use std::clone::Clone;
     mod eficiencia;
-    mod efeitos;
     use crate::pokemon_monstro::poke::eficiencia::eficiencia;
-    use crate::pokemon_monstro::poke::efeitos::*;
     use rand::prelude::*;
     use serde::{Deserialize, Serialize};
-    use std::str::FromStr;
 
 
-    //Structs do pokemon e do ataque
+    //Structs do pokemon 
     #[derive(Debug, Clone, Deserialize, Serialize)]
     pub struct Pokemon{
         pub nome: String,
@@ -23,10 +20,9 @@ pub mod poke{
         pub evasion: u8,
         pub p_tipo: Tipo,
         pub attacks: Vec<Attack>,
-        pub statusComeço: StatusComeçoTurno,
-        pub statusFinal: StatusFinalTurno,
     }
 
+    //Struct do ataque
     #[derive(Debug, Clone, Deserialize, Serialize)]
     pub struct Attack{
         pub nome: String,
@@ -35,11 +31,9 @@ pub mod poke{
         pub accuracy: u8,
         pub pp: u8,
         pub tipo: Tipo,
-        pub statusComeço: StatusComeçoTurno,
-        pub statusFinal: StatusFinalTurno,
     }
 
-    // enums do tipo do pokemon/tipo do ataque e a categoria de cada ataque
+    // enum do tipo do pokemon/tipo do ataque 
     #[derive(Debug, PartialEq, Clone, Copy, Deserialize, Serialize)]
     pub enum Tipo{
         Normal,
@@ -62,29 +56,11 @@ pub mod poke{
         Fairy,
     }
 
+    // Enum com a categoria do ataque
     #[derive(Debug, PartialEq, Clone, Copy, Deserialize, Serialize)]
     pub enum Categoria{
         Físico,
         Especial,
-    }
-
-    #[derive(Debug, PartialEq, Clone, Copy, Deserialize, Serialize)]
-    pub enum StatusFinalTurno{
-        Burn, // 1/8 do hp maximo dano
-        Poison, // 1 dano turno
-        Curse, // 1/4 do hp maximo dano
-        Rooting, // cura 1/16 do hp máximo
-        Bound, // dura de 4-5 turnos
-        None
-    }
-
-    #[derive(Debug, PartialEq, Clone, Copy, Deserialize, Serialize)]
-    pub enum StatusComeçoTurno{
-        Freeze, //20% de chance de sair
-        Paralysis = 2, //25% de chance de n atacar, duração 2 turnos
-        Sleep = 4, //dorme de 1 a 7 turnos
-        Confusion, //dura de 2 - 5 turnos
-        None
     }
 
 
@@ -108,15 +84,13 @@ pub mod poke{
                 evasion,
                 p_tipo,
                 attacks,
-                statusComeço: StatusComeçoTurno::None,
-                statusFinal: StatusFinalTurno::None
             }
         }
     }
 
     //Instanciação do ataque
     impl  Attack{
-        pub fn novo (nome:String, categoria:Categoria, power:f32,accuracy:u8, pp:u8, tipo:Tipo, statusComeço:StatusComeçoTurno, statusFinal:StatusFinalTurno) -> Self{
+        pub fn novo (nome:String, categoria:Categoria, power:f32,accuracy:u8, pp:u8, tipo:Tipo) -> Self{
             Attack{
                 nome,
                 categoria,
@@ -124,88 +98,15 @@ pub mod poke{
                 accuracy,
                 pp,
                 tipo,
-                statusComeço,
-                statusFinal,
             }
         }
         
     }
 
-    impl FromStr for Tipo {
-            type Err = ();
-
-        fn from_str(input: &str) -> Result<Tipo, Self::Err> {
-            match input {
-                "Normal" => Ok(Tipo::Normal),
-                "Fire" => Ok(Tipo::Fire),
-                "Water" => Ok(Tipo::Water),
-                "Grass" => Ok(Tipo::Grass),
-                "Electric" => Ok(Tipo::Electric),
-                "Ice" => Ok(Tipo::Ice),
-                "Fighting" => Ok(Tipo::Fighting),
-                "Poison" => Ok(Tipo::Poison),
-                "Ground" => Ok(Tipo::Ground),
-                "Flying" => Ok(Tipo::Flying),
-                "Psychic" => Ok(Tipo::Psychic),
-                "Bug" => Ok(Tipo::Bug),
-                "Rock" => Ok(Tipo::Rock),
-                "Ghost" => Ok(Tipo::Ghost),
-                "Dragon" => Ok(Tipo::Dragon),
-                "Dark" => Ok(Tipo::Dark),
-                "Steel" => Ok(Tipo::Steel),
-                "Fairy" => Ok(Tipo::Fairy),
-                _      => Err(()),
-            }
-        }
-    }
-
-    impl FromStr for StatusFinalTurno {
-        type Err = ();
-
-    fn from_str(input: &str) -> Result<StatusFinalTurno, Self::Err> {
-        match input {
-            "Burn"=> Ok(StatusFinalTurno::Burn), 
-            "Poison"=> Ok(StatusFinalTurno::Poison), 
-            "Curse"=> Ok(StatusFinalTurno::Curse), 
-            "Rooting"=> Ok(StatusFinalTurno::Rooting), 
-            "Bound"=> Ok(StatusFinalTurno::Bound), 
-            "None"=> Ok(StatusFinalTurno::None),
-            _      => Err(()),
-        }
-    }
-}
-impl FromStr for Categoria {
-    type Err = ();
-
-fn from_str(input: &str) -> Result<Categoria, Self::Err> {
-    match input {
-        "Físico"=> Ok(Categoria::Físico),
-        "Especial"=> Ok(Categoria::Especial),
-        _      => Err(()),
-    }
-}
-}
-impl FromStr for StatusComeçoTurno {
-    type Err = ();
-
-fn from_str(input: &str) -> Result<StatusComeçoTurno, Self::Err> {
-    match input {
-        "Freeze"=> Ok(StatusComeçoTurno::Freeze), 
-        "Paralysis" => Ok(Self::Paralysis), 
-        "Sleep" => Ok(StatusComeçoTurno::Sleep), 
-        "Confusion"=> Ok(StatusComeçoTurno::Confusion), 
-        "None"=> Ok(StatusComeçoTurno::None),
-        _      => Err(()),
-    }
-}
-}
-
-    //Função para realizar o ataque
+    //Função para calcular o dano do ataque
     impl Ataque for Pokemon{
         fn ataca(atacante: &mut Self, inimigo: &mut Self, i: usize){
 
-            efeito_começo( atacante);
-            efeito_começo( inimigo);
             let ataque_categoria = atacante.attacks[i].categoria.clone();
             let poder = atacante.attacks[i].power.clone();
             let tipo_ataque = atacante.attacks[i].tipo.clone();
@@ -245,9 +146,6 @@ fn from_str(input: &str) -> Result<StatusComeçoTurno, Self::Err> {
 
             println!("O {} causa {} de dano", atacante.nome, damage_int);
             println!("O {} fica com {} de vida",inimigo.nome, inimigo.hp);
-
-            efeito_final( atacante);
-            efeito_final( inimigo);
         }
     }
 }

@@ -17,9 +17,7 @@
         "power": 90.0,
         "accuracy": 100,
         "pp": 10,
-        "tipo": "Poison",
-        "statusComeço": "None",
-        "statusFinal": "Poison"
+        "tipo": "Poison"
       },
       {
         "nome": "Giga Drain",
@@ -27,9 +25,7 @@
         "power": 75.0,
         "accuracy": 100,
         "pp": 10,
-        "tipo": "Grass",
-        "statusComeço": "None",
-        "statusFinal": "Rooting"
+        "tipo": "Grass"
       },
       {
         "nome": "Hidden Power",
@@ -37,9 +33,7 @@
         "power": 60.0,
         "accuracy": 100,
         "pp": 15,
-        "tipo": "Normal",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Normal"
       },
       {
         "nome": "Solar Beam",
@@ -47,13 +41,9 @@
         "power": 120.0,
         "accuracy": 100,
         "pp": 10,
-        "tipo": "Grass",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Grass"
       }
-    ],
-    "statusComeço": "None",
-    "statusFinal": "None"
+    ]
   },
   {
     "nome": "Charizard",
@@ -73,9 +63,7 @@
         "power": 120.0,
         "accuracy": 85,
         "pp": 5,
-        "tipo": "Fire",
-        "statusComeço": "None",
-        "statusFinal": "Burn"
+        "tipo": "Fire"
       },
       {
         "nome": "Air Slash",
@@ -83,9 +71,7 @@
         "power": 75.0,
         "accuracy": 95,
         "pp": 20,
-        "tipo": "Flying",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Flying"
       },
       {
         "nome": "Flamethrower",
@@ -93,9 +79,7 @@
         "power": 95.0,
         "accuracy": 100,
         "pp": 15,
-        "tipo": "Fire",
-        "statusComeço": "None",
-        "statusFinal": "Burn"
+        "tipo": "Fire"
       },
       {
         "nome": "Bite",
@@ -103,13 +87,9 @@
         "power": 60.0,
         "accuracy": 100,
         "pp": 25,
-        "tipo": "Dark",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Dark"
       }
-    ],
-    "statusComeço": "None",
-    "statusFinal": "None"
+    ]
   },
   {
     "nome": "Blastoise",
@@ -129,9 +109,7 @@
         "power": 20.0,
         "accuracy": 100,
         "pp": 40,
-        "tipo": "Normal",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Normal"
       },
       {
         "nome": "Dark Pulse",
@@ -139,9 +117,7 @@
         "power": 80.0,
         "accuracy": 100,
         "pp": 15,
-        "tipo": "Dark",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Dark"
       },
       {
         "nome": "Aura Sphere",
@@ -149,9 +125,7 @@
         "power": 80.0,
         "accuracy": 100,
         "pp": 20,
-        "tipo": "Fighting",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Fighting"
       },
       {
         "nome": "Ice Beam",
@@ -159,13 +133,9 @@
         "power": 90.0,
         "accuracy": 100,
         "pp": 10,
-        "tipo": "Ice",
-        "statusComeço": "Freeze",
-        "statusFinal": "None"
+        "tipo": "Ice"
       }
-    ],
-    "statusComeço": "None",
-    "statusFinal": "None"
+    ]
   },
   {
     "nome": "Alakazam",
@@ -185,9 +155,7 @@
         "power": 90.0,
         "accuracy": 100,
         "pp": 10,
-        "tipo": "Psychic",
-        "statusComeço": "Confusion",
-        "statusFinal": "None"
+        "tipo": "Psychic"
       },
       {
         "nome": "Focus Blast",
@@ -195,9 +163,7 @@
         "power": 120.0,
         "accuracy": 70,
         "pp": 5,
-        "tipo": "Fighting",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Fighting"
       },
       {
         "nome": "Shadow Ball",
@@ -205,9 +171,7 @@
         "power": 80.0,
         "accuracy": 100,
         "pp": 15,
-        "tipo": "Ghost",
-        "statusComeço": "None",
-        "statusFinal": "Curse"
+        "tipo": "Ghost"
       },
       {
         "nome": "Knock Off",
@@ -215,12 +179,8 @@
         "power": 65.0,
         "accuracy": 100,
         "pp": 20,
-        "tipo": "Dark",
-        "statusComeço": "None",
-        "statusFinal": "None"
+        "tipo": "Dark"
       }
-    ],
-    "statusComeço": "None",
-    "statusFinal": "None"
+    ]
   }
 ]
