@@ -8,14 +8,13 @@
     "sp_attack": 184.0,
     "sp_defense": 184.0,
     "speed": 148.0,
-    "evasion": 10,
     "p_tipo": "Grass",
     "attacks": [
       {
         "nome": "Sludge Bomb",
         "categoria": "Especial",
         "power": 90.0,
-        "accuracy": 100,
+        "accuracy": 90,
         "pp": 10,
         "tipo": "Poison"
       },
@@ -31,7 +30,7 @@
         "nome": "Hidden Power",
         "categoria": "Especial",
         "power": 60.0,
-        "accuracy": 100,
+        "accuracy": 80,
         "pp": 15,
         "tipo": "Normal"
       },
@@ -54,7 +53,6 @@
     "sp_attack": 200.0,
     "sp_defense": 157.0,
     "speed": 184.0,
-    "evasion": 10,
     "p_tipo": "Fire",
     "attacks": [
       {
@@ -100,7 +98,6 @@
     "sp_attack": 157.0,
     "sp_defense": 193.0,
     "speed": 144.0,
-    "evasion": 10,
     "p_tipo": "Water",
     "attacks": [
       {
@@ -120,17 +117,17 @@
         "tipo": "Dark"
       },
       {
-        "nome": "Aura Sphere",
-        "categoria": "Especial",
-        "power": 80.0,
+        "nome": "Water Pulse",
+        "categoria": "Físico",
+        "power": 60.0,
         "accuracy": 100,
         "pp": 20,
-        "tipo": "Fighting"
+        "tipo": "Water"
       },
       {
         "nome": "Ice Beam",
         "categoria": "Especial",
-        "power": 90.0,
+        "power": 95.0,
         "accuracy": 100,
         "pp": 10,
         "tipo": "Ice"
@@ -146,7 +143,6 @@
     "sp_attack": 247.0,
     "sp_defense": 175.0,
     "speed": 220.0,
-    "evasion": 10,
     "p_tipo": "Psychic",
     "attacks": [
       {

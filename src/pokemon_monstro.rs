@@ -4,7 +4,7 @@ pub mod poke{
     use crate::pokemon_monstro::poke::eficiencia::eficiencia;
     use rand::prelude::*;
     use serde::{Deserialize, Serialize};
-
+    use colored::*;
 
     //Structs do pokemon 
     #[derive(Debug, Clone, Deserialize, Serialize)]
@@ -17,7 +17,6 @@ pub mod poke{
         pub sp_attack: f32,
         pub sp_defense: f32,
         pub speed: f32,
-        pub evasion: u8,
         pub p_tipo: Tipo,
         pub attacks: Vec<Attack>,
     }
@@ -71,7 +70,7 @@ pub mod poke{
 
     // Instanciação do pokemon
     impl Pokemon{
-        pub fn novo(nome:String, hp: u16, hp_max:u16, attack: f32, defense: f32, sp_attack: f32, sp_defense: f32, speed: f32, evasion: u8, p_tipo:Tipo, attacks: Vec<Attack>)-> Self{
+        pub fn novo(nome:String, hp: u16, hp_max:u16, attack: f32, defense: f32, sp_attack: f32, sp_defense: f32, speed: f32, p_tipo:Tipo, attacks: Vec<Attack>)-> Self{
             Pokemon{
                 nome,
                 hp,
@@ -81,7 +80,6 @@ pub mod poke{
                 sp_attack,
                 defense,
                 speed,
-                evasion,
                 p_tipo,
                 attacks,
             }
@@ -127,6 +125,13 @@ pub mod poke{
             //Função para calcular a vantagem do ataque
             let modificador = eficiencia(tipo_ataque, tipo_inimigo); 
             
+            let precisão:u8 = rand::thread_rng().gen_range(0..101);
+
+            //Função para calcular se o ataque atinge ou não
+            if precisão > atacante.attacks[i].accuracy{
+                println!("{}", "O pokemon perdeu o ataque".red());
+                return;
+            }
             //Função para calcular o dano
             let mut damage = (((((2.0*75.0/5.0)+2.0)*poder*(p_ataque/p_defesa))/50.0)+2.0)*random*modificador;
 
